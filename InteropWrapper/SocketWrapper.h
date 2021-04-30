@@ -12,7 +12,7 @@ namespace InteropWrapper
 		static int listen_wrapper(int64 socket, int backlog);
 		static int bind_wrapper(int64 socket, int64 socketAddress, int socketAddressSize);
 		static int getsocketname_wrapper(int64 socket, int64 socketAddress, int socketAddressSizeIn, int* socketAddressSizeOut);
-		static int WSASocket_wrapper(int addressFamily, int socketType, int protocolType, int64 protocolInfo, uint32 group, uint32 flags);
+		static int64 WSASocket_wrapper(int addressFamily, int socketType, int protocolType, int64 protocolInfo, uint32 group, uint32 flags);
 		static int WSAIoctl_wrapper(int64 socket, int ioControlCode, Guid guidIn, Guid* guidOut, int guidSize, int64* funcPtr, int funcPtrSize, int* bytesTransferred, int64 shouldBeNull, int64 shouldBeNull2);
 		static bool WSAGetOverlappedResult_wrapper(int64 socket, int64 ptrNativeOverlapped, uint32* ptrBytesTransferred, bool wait, uint32* ptrFlags);
 		static int WSASend_wrapper(int64 socket, int64 lpBuffers, int buffersCount, int* numberOfBytesSent, int dwFlags, int64 lpOverlapped, int64 lpCompletionRoutine);

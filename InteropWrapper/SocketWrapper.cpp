@@ -29,7 +29,7 @@ int InteropWrapper::SocketWrapper::getsocketname_wrapper(int64 socket, int64 soc
 	return getsockname((SOCKET)socket, (sockaddr*)socketAddress, socketAddressSizeOut);
 }
 
-int InteropWrapper::SocketWrapper::WSASocket_wrapper(int addressFamily, int socketType, int protocolType, int64 protocolInfo, uint32 group, uint32 flags)
+int64 InteropWrapper::SocketWrapper::WSASocket_wrapper(int addressFamily, int socketType, int protocolType, int64 protocolInfo, uint32 group, uint32 flags)
 {
 	return WSASocket(addressFamily, socketType, protocolType, (LPWSAPROTOCOL_INFOW)protocolInfo, group, flags);
 }
