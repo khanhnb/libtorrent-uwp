@@ -7,7 +7,7 @@
 ![Twitter URL](https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Fgithub.com%2Fkhanhnb%2Flibtorrent-uwp)
 
 libtorrent-uwp's aim is to make [amacal/leak](https://github.com/amacal/leak) work on UWP.  
-Under the hood, it creates a SocketWrapper so leak can call some unsupported APIs on UWP.
+Under the hood, it creates a socket-wrapper so leak can call some unsupported socket APIs on UWP.
 
 # Leak #
 
