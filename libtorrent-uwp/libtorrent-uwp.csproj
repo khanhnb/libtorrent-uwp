@@ -1,0 +1,647 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDFF32A4-C82E-4D64-995A-748268599E24}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>libtorrent_uwp</RootNamespace>
+    <AssemblyName>libtorrent-uwp</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Leak\Leak.Bencoding\BencodedData.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencodedEntry.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencodedNumber.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencodedText.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencodedValue.cs" />
+    <Compile Include="Leak\Leak.Bencoding\Bencoder.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencoderDecoder.cs" />
+    <Compile Include="Leak\Leak.Bencoding\BencoderExtensions.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmClient.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmConnect.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmExtensions.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmFilter.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmHelper.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmSession.cs" />
+    <Compile Include="Leak\Leak.Client.Swarm\SwarmSettings.cs" />
+    <Compile Include="Leak\Leak.Client\AdapterExtensions.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataGetToDataMapAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataGetToDataStoreAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataGetToGlueAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataShareToDataMapAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataShareToDataStoreAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\DataShareToGlueAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\MemoryToDataStoreAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\MemoryToNetworkAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\MetaGetToGlueAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\Adapters\MetaGetToMetaStoreAdapter.cs" />
+    <Compile Include="Leak\Leak.Client\MessageDefinition.cs" />
+    <Compile Include="Leak\Leak.Client\Notification.cs" />
+    <Compile Include="Leak\Leak.Client\NotificationCallback.cs" />
+    <Compile Include="Leak\Leak.Client\NotificationCollection.cs" />
+    <Compile Include="Leak\Leak.Client\NotificationExtensions.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\BitfieldChangedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\DataAllocatedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\DataChangedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\DataCompletedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\DataVerifiedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\ListenerFailedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\ListenerStartedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\MemorySnapshotNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\MetafileCompletedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\MetafileMeasuredNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\MetafileReceivedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\MetafileRequestedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\PeerConnectedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\PeerDisconnectedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\PeerRejectedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\PieceCompletedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\PieceRejectedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\StatusChangedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\Notifications\TrackerAnnouncedNotification.cs" />
+    <Compile Include="Leak\Leak.Client\NotificationType.cs" />
+    <Compile Include="Leak\Leak.Client\NotificationVisitor.cs" />
+    <Compile Include="Leak\Leak.Client\Runtime.cs" />
+    <Compile Include="Leak\Leak.Client\RuntimeInstance.cs" />
+    <Compile Include="Leak\Leak.Client\Session.cs" />
+    <Compile Include="Leak\Leak.Common\Bitfield.cs" />
+    <Compile Include="Leak\Leak.Common\BlockIndex.cs" />
+    <Compile Include="Leak\Leak.Common\Bytes.cs" />
+    <Compile Include="Leak\Leak.Common\Component.cs" />
+    <Compile Include="Leak\Leak.Common\ComponentStatus.cs" />
+    <Compile Include="Leak\Leak.Common\FileHash.cs" />
+    <Compile Include="Leak\Leak.Common\FileHashCollection.cs" />
+    <Compile Include="Leak\Leak.Common\Goal.cs" />
+    <Compile Include="Leak\Leak.Common\Handshake.cs" />
+    <Compile Include="Leak\Leak.Common\HandshakeOptions.cs" />
+    <Compile Include="Leak\Leak.Common\Metainfo.cs" />
+    <Compile Include="Leak\Leak.Common\MetainfoEntry.cs" />
+    <Compile Include="Leak\Leak.Common\MetainfoHash.cs" />
+    <Compile Include="Leak\Leak.Common\MetainfoProperties.cs" />
+    <Compile Include="Leak\Leak.Common\PeerHash.cs" />
+    <Compile Include="Leak\Leak.Common\PeerState.cs" />
+    <Compile Include="Leak\Leak.Common\PieceInfo.cs" />
+    <Compile Include="Leak\Leak.Common\Size.cs" />
+    <Compile Include="Leak\Leak.Common\SizeUnit.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderBuilder.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderCollection.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderConfiguration.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderContext.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderDefinition.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderExtensions.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderHooks.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderKeepAlive.cs" />
+    <Compile Include="Leak\Leak.Communicator\SenderService.cs" />
+    <Compile Include="Leak\Leak.Completion\CompletionCallback.cs" />
+    <Compile Include="Leak\Leak.Completion\CompletionInterop.cs" />
+    <Compile Include="Leak\Leak.Completion\CompletionThread.cs" />
+    <Compile Include="Leak\Leak.Completion\CompletionWorker.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnector.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorBuilder.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorConfiguration.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorContext.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorDependencies.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorExtensions.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorHandshake.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorHooks.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorTaskAccept.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorTaskConnect.cs" />
+    <Compile Include="Leak\Leak.Connector\PeerConnectorTaskReject.cs" />
+    <Compile Include="Leak\Leak.Datashare\DataShareBlock.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareBuilder.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareCollection.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareConfiguration.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareContext.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareDependencies.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareEntry.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareExtensions.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareHooks.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareParameters.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareService.cs" />
+    <Compile Include="Leak\Leak.Datashare\DatashareTaskInterested.cs" />
+    <Compile Include="Leak\Leak.Datashare\DataShareToDataMap.cs" />
+    <Compile Include="Leak\Leak.Datashare\DataShareToDataStore.cs" />
+    <Compile Include="Leak\Leak.Datashare\DataShareToGlue.cs" />
+    <Compile Include="Leak\Leak.Events\BlockExpired.cs" />
+    <Compile Include="Leak\Leak.Events\BlockHandled.cs" />
+    <Compile Include="Leak\Leak.Events\BlockRead.cs" />
+    <Compile Include="Leak\Leak.Events\BlockReserved.cs" />
+    <Compile Include="Leak\Leak.Events\BlockSent.cs" />
+    <Compile Include="Leak\Leak.Events\BlockWritten.cs" />
+    <Compile Include="Leak\Leak.Events\ConnectionEstablished.cs" />
+    <Compile Include="Leak\Leak.Events\ConnectionRejected.cs" />
+    <Compile Include="Leak\Leak.Events\DataAllocated.cs" />
+    <Compile Include="Leak\Leak.Events\DataChanged.cs" />
+    <Compile Include="Leak\Leak.Events\DataCompleted.cs" />
+    <Compile Include="Leak\Leak.Events\DataVerified.cs" />
+    <Compile Include="Leak\Leak.Events\HandshakeCompleted.cs" />
+    <Compile Include="Leak\Leak.Events\HandshakeRejected.cs" />
+    <Compile Include="Leak\Leak.Events\MetadataShared.cs" />
+    <Compile Include="Leak\Leak.Events\MetafileMeasured.cs" />
+    <Compile Include="Leak\Leak.Events\MetafileRead.cs" />
+    <Compile Include="Leak\Leak.Events\MetafileRejected.cs" />
+    <Compile Include="Leak\Leak.Events\MetafileVerified.cs" />
+    <Compile Include="Leak\Leak.Events\MetafileWritten.cs" />
+    <Compile Include="Leak\Leak.Events\PieceAccepted.cs" />
+    <Compile Include="Leak\Leak.Events\PieceCompleted.cs" />
+    <Compile Include="Leak\Leak.Events\PieceReady.cs" />
+    <Compile Include="Leak\Leak.Events\PieceRejected.cs" />
+    <Compile Include="Leak\Leak.Events\TaskCompleted.cs" />
+    <Compile Include="Leak\Leak.Events\TaskStarted.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataBuilder.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataExtensions.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataHandler.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataHooks.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataMeasured.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataPlugin.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataReceived.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataRejected.cs" />
+    <Compile Include="Leak\Leak.Extensions.Metadata\MetadataRequested.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersBuilder.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersExtensions.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersHandler.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersHooks.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersPlugin.cs" />
+    <Compile Include="Leak\Leak.Extensions.Peers\PeersReceived.cs" />
+    <Compile Include="Leak\Leak.Extensions\MoreContainer.cs" />
+    <Compile Include="Leak\Leak.Extensions\MoreHandler.cs" />
+    <Compile Include="Leak\Leak.Extensions\MoreMapping.cs" />
+    <Compile Include="Leak\Leak.Extensions\MorePlugin.cs" />
+    <Compile Include="Leak\Leak.Files\File.cs" />
+    <Compile Include="Leak\Leak.Files\FileBuffer.cs" />
+    <Compile Include="Leak\Leak.Files\FileFactory.cs" />
+    <Compile Include="Leak\Leak.Files\FileInstance.cs" />
+    <Compile Include="Leak\Leak.Files\FileInterop.cs" />
+    <Compile Include="Leak\Leak.Files\FileRead.cs" />
+    <Compile Include="Leak\Leak.Files\FileReadCallback.cs" />
+    <Compile Include="Leak\Leak.Files\FileReadResult.cs" />
+    <Compile Include="Leak\Leak.Files\FileReadRoutine.cs" />
+    <Compile Include="Leak\Leak.Files\FileResult.cs" />
+    <Compile Include="Leak\Leak.Files\FileStatus.cs" />
+    <Compile Include="Leak\Leak.Files\FileWrite.cs" />
+    <Compile Include="Leak\Leak.Files\FileWriteCallback.cs" />
+    <Compile Include="Leak\Leak.Files\FileWriteResult.cs" />
+    <Compile Include="Leak\Leak.Files\FileWriteRoutine.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorBitfieldMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorBuilder.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorCollection.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorConfiguration.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorContext.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorDependencies.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorEntry.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorExtendedMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorExtensions.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorFacts.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorGenericMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorHaveMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorHooks.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorParameters.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorPieceMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorRequestMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\CoordinatorService.cs" />
+    <Compile Include="Leak\Leak.Glue\Messages\BitfieldIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\Messages\ExtendedIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\Messages\HaveIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\Messages\PieceIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Glue\Messages\RequestIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Listener.Events\ConnectionArrived.cs" />
+    <Compile Include="Leak\Leak.Listener.Events\ListenerFailed.cs" />
+    <Compile Include="Leak\Leak.Listener.Events\ListenerStarted.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListener.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerBuilder.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerConfiguration.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerDependencies.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerExtensions.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerHandshake.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerHooks.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerPort.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerPortRandom.cs" />
+    <Compile Include="Leak\Leak.Listener\PeerListenerPortValue.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverBuilder.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverConfiguration.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverConnection.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverDefinition.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverExtensions.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverHandler.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverHooks.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverParameters.cs" />
+    <Compile Include="Leak\Leak.Loop\ReceiverService.cs" />
+    <Compile Include="Leak\Leak.Memory.Events\MemorySnapshot.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryBlock.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryBuilder.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryCollection.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryConfiguration.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryContext.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryDependencies.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryExtensions.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryHooks.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryParameters.cs" />
+    <Compile Include="Leak\Leak.Memory\MemoryService.cs" />
+    <Compile Include="Leak\Leak.Metadata\MetainfoBuilder.cs" />
+    <Compile Include="Leak\Leak.Metadata\MetainfoFactory.cs" />
+    <Compile Include="Leak\Leak.Metadata\MetainfoFile.cs" />
+    <Compile Include="Leak\Leak.Metafile\HashExtensions.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileBuilder.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileContext.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileDependencies.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileDestination.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileExtensions.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileHooks.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileImplementation.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileParameters.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileService.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileTaskRead.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileTaskVerified.cs" />
+    <Compile Include="Leak\Leak.Metafile\MetafileTaskWritten.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetBuilder.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetConfiguration.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetContext.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetDependencies.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetExtensions.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetGlue.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetHooks.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetMetafile.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetParameters.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetService.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetTaskData.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetTaskNext.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetTaskSize.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetagetTaskVerify.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineBitfield.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineBlock.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineBlockCollection.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineConfiguration.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineReservation.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineReservationCollection.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineStrategy.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineStrategyContext.cs" />
+    <Compile Include="Leak\Leak.Metaget\MetamineStrategySequential.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareBuilder.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareCollection.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareConfiguration.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareContext.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareDependencies.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareEntry.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareExtensions.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareHooks.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareParameters.cs" />
+    <Compile Include="Leak\Leak.Metashare\MetashareService.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeConnection.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeConnectionEncryptedMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeConnectionToDecryptor.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeConnectionToEncryptor.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCredentials.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCryptography.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCryptoHashMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCryptoMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCryptoPayload.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeCryptoPayloadMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKey.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyContainer.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyExchange.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyExchangeMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyOwnership.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeKeyScope.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeMatch.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeMatchExtensions.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeMessage.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiator.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorActive.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorActiveContext.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorActiveInstance.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorBuilder.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorContext.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorDependencies.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorExtensions.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorHooks.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorInstance.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorPassive.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorPassiveContext.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeNegotiatorPassiveInstance.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeRejection.cs" />
+    <Compile Include="Leak\Leak.Negotiator\HandshakeRivestCipher.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\DataBlock.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\DataBlockCallback.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\DataBlockFactory.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkAddress.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkBytesHandler.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkConnection.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkDirection.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkExtensions.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkIncomingMessage.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkIncomingMessageHandler.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkOutgoingMessage.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkPredicateHandler.cs" />
+    <Compile Include="Leak\Leak.Networking.Core\NetworkRestrictedMessage.cs" />
+    <Compile Include="Leak\Leak.Networking.Events\ConnectionAttached.cs" />
+    <Compile Include="Leak\Leak.Networking.Events\ConnectionEncrypted.cs" />
+    <Compile Include="Leak\Leak.Networking.Events\ConnectionReceived.cs" />
+    <Compile Include="Leak\Leak.Networking.Events\ConnectionSent.cs" />
+    <Compile Include="Leak\Leak.Networking.Events\ConnectionTerminated.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkConfiguration.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkIncomingBuffer.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkIncomingBufferMessage.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkIncomingBufferView.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkIncomingDecryptor.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkOutgoingBlock.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkOutgoingBuffer.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkOutgoingEncryptor.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPool.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolBuilder.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolConfiguration.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolConnection.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolDecrypt.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolDependencies.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolEntry.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolExtensions.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolHooks.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolInline.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolInstance.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolListener.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolMemory.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolMemoryBlock.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolQueue.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolReceive.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolSend.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolTask.cs" />
+    <Compile Include="Leak\Leak.Networking\NetworkPoolTaskCallback.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusBitfieldCollection.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusBitfieldRanking.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusCache.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusExtensions.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPiece.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPieceCollection.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPieceCompleted.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPieceNothing.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPiecePartial.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusPieceReady.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusReservation.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusReservationCollection.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusReservationComparer.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusStateCollection.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Components\OmnibusStateEntry.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Events\OmnibusReservationEvent.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusBuilder.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusConfiguration.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusContext.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusDependencies.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusHooks.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusParameters.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusService.cs" />
+    <Compile Include="Leak\Leak.Omnibus\OmnibusStrategy.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Strategies\OmnibusStrategyRarestFirst.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Strategies\OmnibusStrategySequential.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Tasks\CompleteBlockTask.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Tasks\CompletePieceTask.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Tasks\InvalidatePieceTask.cs" />
+    <Compile Include="Leak\Leak.Omnibus\Tasks\SchedulePeerTask.cs" />
+    <Compile Include="Leak\Leak.Omnibus\ThresholdReached.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Core\Extended.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Core\Piece.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Core\Request.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\BitfieldChanged.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\BlockReceived.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\BlockRequested.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\ExtensionDataReceived.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\ExtensionDataSent.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\ExtensionListReceived.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\ExtensionListSent.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\KeepAliveRequested.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\MessageRequested.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\PeerConnected.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\PeerDisconnected.cs" />
+    <Compile Include="Leak\Leak.Peer.Coordinator.Events\StatusChanged.cs" />
+    <Compile Include="Leak\Leak.Peer.Receiver.Events\KeepAliveReceived.cs" />
+    <Compile Include="Leak\Leak.Peer.Receiver.Events\MessageIgnored.cs" />
+    <Compile Include="Leak\Leak.Peer.Receiver.Events\MessageReceived.cs" />
+    <Compile Include="Leak\Leak.Peer.Sender.Core\SenderMessage.cs" />
+    <Compile Include="Leak\Leak.Peer.Sender.Events\KeepAliveSent.cs" />
+    <Compile Include="Leak\Leak.Peer.Sender.Events\MessageIgnored.cs" />
+    <Compile Include="Leak\Leak.Peer.Sender.Events\MessageSent.cs" />
+    <Compile Include="Leak\Leak.Repository\BitfileContext.cs" />
+    <Compile Include="Leak\Leak.Repository\BitfileDestination.cs" />
+    <Compile Include="Leak\Leak.Repository\BitfileService.cs" />
+    <Compile Include="Leak\Leak.Repository\HashExtensions.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryAllocation.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryAllocationRange.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryBuilder.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryConfiguration.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryContext.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryDependencies.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryExtensions.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryHooks.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryMemory.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryMemoryBlock.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryParameters.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryService.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTask.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskAllocate.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskCallback.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskFlush.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskQueue.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskReadBlock.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskVerifyPiece.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskVerifyRange.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryTaskWriteBlock.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryView.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewAllocator.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewCache.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewEntry.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewRead.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewReadCallback.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewReadRoutine.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewWrite.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewWriteCallback.cs" />
+    <Compile Include="Leak\Leak.Repository\RepositoryViewWriteRoutine.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetBuilder.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetConfiguration.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetContext.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetDependencies.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetExtensions.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetHooks.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetParameters.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetService.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetTaskInterested.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetTaskSchedule.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetTaskScheduleAll.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetToDataMap.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetToDataStore.cs" />
+    <Compile Include="Leak\Leak.Retriever\DataGetToGlue.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketBindRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketBuffer.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketFactory.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketOptionRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\SocketStatus.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocket.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketAccept.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketAcceptCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketAcceptParse.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketAcceptResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketAcceptRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketBind.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketConnect.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketConnectCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketConnectResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketConnectRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketDisconnect.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketDisconnectCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketDisconnectResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketDisconnectRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketExtensions.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketInfo.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketInfoRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketInstance.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketInterop.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketReceive.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketReceiveCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketReceiveResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketReceiveRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketSend.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketSendCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketSendResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\TcpSocketSendRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocket.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketInstance.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketInterop.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketReceive.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketReceiveCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketReceiveResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketReceiveRoutine.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketSend.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketSendCallback.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketSendResult.cs" />
+    <Compile Include="Leak\Leak.Sockets\UdpSocketSendRoutine.cs" />
+    <Compile Include="Leak\Leak.Tasks\ConfigurationExtensions.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakPipeline.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakPipelineTimer.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakPipelineTrigger.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakQueue.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakQueueExtensions.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakTask.cs" />
+    <Compile Include="Leak\Leak.Tasks\LeakTaskInline.cs" />
+    <Compile Include="Leak\Leak.Tasks\PipelineExtensions.cs" />
+    <Compile Include="Leak\Leak.Tasks\PipelineService.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerAnnounced.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerConnected.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerFailed.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerPacketIgnored.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerPacketReceived.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerPacketSent.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get.Events\TrackerTimeout.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetAnnounceTask.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetBuilder.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetCollection.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetConfiguration.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetContext.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetDependencies.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetEntry.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetEvent.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetExtensions.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetFactory.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHooks.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpCollection.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpEntry.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpExtensions.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpProtocol.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpProxy.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpRegistrant.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpService.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpStatus.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetHttpTask.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetNextTask.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetParameters.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetProgress.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetProxy.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetRegistrant.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetService.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpCollection.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpEntry.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpExtensions.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpProtocol.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpProxy.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpRegistrant.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpService.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpStatus.cs" />
+    <Compile Include="Leak\Leak.Tracker.Get\TrackerGetUdpTask.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Properties\libtorrent_uwp.rd.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.2.10</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InteropWrapper\InteropWrapper.vcxproj">
+      <Project>{911cc3bb-b74c-465b-96de-e696f2ef59c4}</Project>
+      <Name>InteropWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
