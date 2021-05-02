@@ -2,11 +2,11 @@
 
 namespace InteropWrapper
 {
-    public ref class SocketWrapper sealed
-    {
+	public ref class SocketWrapper sealed
+	{
 	private:
 		SocketWrapper();
-    public:
+	public:
 		static int closesocket_wrapper(int64 socket);
 		static int WSAGetLastError_wrapper();
 		static int listen_wrapper(int64 socket, int backlog);
